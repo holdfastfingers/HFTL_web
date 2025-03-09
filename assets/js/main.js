@@ -314,7 +314,6 @@ var settings = {
 
 })(jQuery);
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const backBtn = document.getElementById('backBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -328,14 +327,14 @@ document.addEventListener("DOMContentLoaded", function() {
         gallery.scrollBy({ left: 650, behavior: 'smooth' });
     });
 
-	fetch('text/john_card_body.txt')
+    fetch('text/John/john_card_body.txt')
         .then(response => response.text())
         .then(data => {
             document.getElementById('john-card-body').innerText = data;
         })
         .catch(error => console.error('Error fetching the text file:', error));
-  
 });
+
 
 let scrollContainer=document.querySelector('.gallery');
 
