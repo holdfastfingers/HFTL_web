@@ -327,21 +327,12 @@ document.addEventListener("DOMContentLoaded", function() {
         gallery.scrollBy({ left: 650, behavior: 'smooth' });
     });
 
-    fetch('text/john_card_body.txt')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('john-card-body').innerText = data;
-        })
-        .catch(error => console.error('Error fetching the text file:', error));
-});
+    let scrollContainer = document.querySelector('.gallery');
 
-
-let scrollContainer=document.querySelector('.gallery');
-
-
-scrollContainer.addEventListener('wheel',(e)=>{
-	e.defaultPrevented();
-	scrollContainer.scrollLeft += e.deltaY;
-	scrollContainer.style.scrollBehavior='auto';
+    scrollContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY;
+        scrollContainer.style.scrollBehavior = 'auto';
+    });
 });
 
