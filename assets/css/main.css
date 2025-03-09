@@ -4387,3 +4387,14 @@
 	opacity:1;
 }
 
+.embedded-text.style1 {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #ffffff;
+    padding: 10px;
+    
+    width: 100%;
+    height: auto;
+    display: block;
+}
