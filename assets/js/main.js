@@ -314,9 +314,30 @@ var settings = {
 
 })(jQuery);
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    const backBtn = document.getElementById('backBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const gallery = document.querySelector('.gallery');
+
+    backBtn.addEventListener('click', function() {
+        gallery.scrollBy({ left: -650, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function() {
+        gallery.scrollBy({ left: 650, behavior: 'smooth' });
+    });
+
+    fetch('text/John/john_card_body.txt')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('john-card-body').innerText = data;
+        })
+        .catch(error => console.error('Error fetching the text file:', error));
+});
+
 let scrollContainer=document.querySelector('.gallery');
-let backBtn=document.getElementById("backBtn");
-let nextBtn=document.getElementById("nextBtn");
+
 
 scrollContainer.addEventListener('wheel',(e)=>{
 	e.defaultPrevented();
@@ -324,12 +345,3 @@ scrollContainer.addEventListener('wheel',(e)=>{
 	scrollContainer.style.scrollBehavior='auto';
 });
 
-nextBtn.addEventListener("click", ()=>{
-	scrollContainer.style.scrollBehavior='smooth';
-	scrollContainer.scrollLeft +=1380;
-});
-
-backBtn.addEventListener("click", ()=>{
-	scrollContainer.style.scrollBehavior='smooth';
-	scrollContainer.scrollLeft -=1380;
-});
